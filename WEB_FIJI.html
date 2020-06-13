@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Les meilleures destinations </title>
+	    <meta charset="UTF-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	    <style type="text/css">
+            body
+            {
+                background-image: url("page.jpg");
+            }
+
+            section p
+            {
+                color: white;
+                font-size: 26px;
+                background-color: transparent;
+                border: 2px solid white;
+                border-radius: 10px;
+                padding: 5px;
+                text-align: justify;
+                text-indent: 80px;
+            }
+            h1
+            {
+                color: lightblue;
+                text-align: center;
+                font-weight: bold;
+                font-size: 50px;
+            }
+            h1:hover
+            {
+                transform: skewY(5deg) skewX(17deg) scale(1.1); /* SKEW = DISTROSION */
+                text-shadow: 0.5rem 1rem 2rem azure;
+                transition-duration: 3s;
+            }
+            a
+            {
+                text-decoration: none;
+            }
+            button:hover
+            {
+                background-color: lightgrey;
+            }
+
+            .efrei
+            {
+              position: relative;
+              overflow: hidden;
+              margin-left: 12px;
+              margin: 10px;
+              min-width: 255px;
+              max-width: 515px;
+              height: 200px;
+              width: 500%;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            }
+            .efrei img 
+            {
+              height: 100%;
+              right: 0;
+              -webkit-transition: all 2s ease-out;
+              transition: all 2s ease-out;
+            }
+            .efrei:hover img, .efrei.hover img
+            {
+              -webkit-transform: translateX(130px);
+              transform: translateX(130px);
+            }
+            div
+            {
+                display: flex;
+            }
+
+            #search
+            {
+                padding: 5px;
+                border-radius: 40px;
+                margin-left: 520px;
+                margin-top: 13px;
+                outline: none;
+                border: 2px solid azure;
+                width: 30px;
+                padding-left: 5px;
+                transition: width 2s;
+            }
+
+            #search:focus
+            {
+                width: 105px;
+            }
+
+            .ouvrir:hover
+            {
+                background: green;
+            }
+
+            h2
+            {
+                color: white;
+                text-align: right;
+                background-color: transparent;
+            }
+
+            nav
+            {
+                padding: 0px;
+                width: 100%;
+                background-color: transparent;
+            }
+
+            nav ul::after
+            {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            ul li
+            {
+                color: white;
+            }
+
+            nav li:hover .submenu
+            {
+                display: inline-block;
+                position: absolute;
+                top: 100%;
+                left: 0px;
+                padding: 0px;
+                z-index: 1000;
+            }
+
+            .submenu li
+            {
+                border-bottom: 1px solid #CCC; 
+            }
+
+            .submenu li a
+            {
+                padding: 15px 30px;
+                font-size: 14px;
+                color: lightblue;
+                width: 70px;
+            }
+
+
+            nav ul
+            {
+                margin:0px;
+                padding:0px;
+                
+            }
+
+            nav li
+            {
+                list-style-type: none;
+            }
+
+            nav ul li
+            {
+                float: right;
+                position: relative;
+            }
+
+            nav ul li a 
+            {
+                padding: 15px 30px;
+                position: relative;
+                display: block;
+                color: white;
+                font-weight: bold;
+            }
+
+            .submenu
+            {
+                display: none;
+            }
+
+            nav input[type=checkbox]
+            {
+                display: none;
+            }
+
+            nav a
+            {
+                display: inline-block;
+                text-decoration: none;
+                font-size: 19px;
+            }
+
+            .menu1:hover
+            {
+                border-top: 5px solid #2560E7;
+                background-color: transparent;
+                color: white;
+                transition: all 0.5s ease-in-out;
+
+            }
+
+            .menu2:hover
+            {
+                border-top: 5px solid #4089BD;
+                background-color: transparent;
+                color: white;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .menu3:hover
+            {
+                border-top: 5px solid #0C18DA;
+                color: white;
+                background-color: transparent;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .menu4:hover
+            {
+                border-top: 5px solid #16CAC5;
+                background-color: transparent;
+                color: white;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .menu5:hover
+            {
+                border-top: 5px solid darkblue;
+                background-color: transparent;
+                color: white;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .menu1 .submenu, .menu2 .submenu, .menu3 .submenu
+            {
+                background-color: transparent;
+            }
+
+
+            .submenu li:hover a
+            {
+                color: #EEE;
+                font-weight: bold;
+            }
+
+            .menu1 .submenu li:hover
+            {
+                background-color: transparent;
+            }
+
+            nav label
+            {
+                display: none;
+            }
+
+            nav input[type=checkbox]:checked ~ ul
+            {
+                display: block;
+            }
+
+            @media screen and (max-width: 500px)
+            {
+                .menu-mobile
+                {
+                    display: block;
+                    background-color: grey;
+                    color: #fff;
+                    text-align: left;
+                    padding: 12px 0px;
+                }
+                
+                nav ul
+                {
+                    display: none;
+                }
+                nav ul li, nav ul li a
+                {
+                    width: 100%;
+                    text-align: center;
+                }
+                nav ul li a, nav ul li:hover a
+                {
+                    padding: 10px 0px;
+                }
+                nav li:hover .submenu
+                {
+                    display: block;
+                    position: static;
+                }
+            }
+         </style>
+    </head>
+	<body>
+
+    <header>
+            <nav id="retour">
+                <label for="menu-mobile" class="menu-mobile"> Menu </label>
+                <input type="checkbox" id="menu-mobile" role="button">
+                <button> <a class="retour" href="WEB_COMMENTAIRES.html"> Allez dans l'espace commmentaire </a> </button>
+                <button> <a class="retour" href="WEB_PROJET.html"> Menu principal </a> </button>
+                <ul>
+                    <li class="menu1"> <a> Accueil </a>
+                        <ul class="submenu">
+                            <li><a href="https://www.trivago.fr/" target="_blank"> Reserver son hotel</a></li>
+                            <li><a href="https://www.booking.com/index.fr.html" target="_blank"> Reserver son départ </a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu2"><a> Les îles </a>
+                        <ul class="submenu">
+                            <li><a href="WEB_BALI.html">Bali</a></li>
+                            <li><a href="WEB_FIJI.html">Fiji</a></li>
+                            <li><a href="WEB_BORABORA.html">Borabora</a></li>
+                            <li><a href="WEB_MALDIVES.html">Maldives</a></li>
+                            <li><a href="WEB_CANARIES.html">Canaries</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu5"> <a href="WEB_COMMENTAIRES.html"> Commentez </a> </li>
+
+                    <li class="menu3"> <a href="WEB_TEAM.html"> A propos </a> </li>
+                    
+                    <input type="search" id="search" placeholder="tapez..." onchange="ouvrirPage()"> <input class="ouvrir" type="submit" id="btn" value="Rechercher" onclick="ouvrirPage()">
+
+                    <script type="text/javascript">
+                        function ouvrirPage(){
+                            var a = document.getElementById("search").value;
+                            if (a == "")
+                            {
+                                alert("veuiller remplir un champ dans la barre de recherche");
+                            }
+                            else if (a == "équipe")
+                            {
+                                window.open("WEB_TEAM.html");
+                            }
+                            else if (a == "hotel")
+                            {
+                                window.open("https://www.trivago.fr/");
+                            }
+                            else if (a == "voyage")
+                            {
+                                window.open("https://www.booking.com/index.fr.html");
+                            }
+                            else if (a == "fiji")
+                            {
+                                window.open("WEB_FIJI.html")
+                            }
+                            else if (a == "bali")
+                            {
+                                window.open("WEB_BALI.html")
+                            }
+                            else if (a == "borabora")
+                            {
+                                window.open("WEB_BORABORA.html")
+                            }
+                            else if (a == "canarie")
+                            {
+                                window.open("WEB_CANARIES.html")
+                            }
+                            else if (a == "maldive")
+                            {
+                                window.open("WEB_MALDIVES.html")
+                            }
+                        }
+                    </script>
+                </ul>
+            </nav>
+        </header>
+	   <section id="Fiji" class="Fiji">
+			 <h1> Les Fidjis </h1>
+
+			 </br>
+        	 </br>
+        	<aside>
+            	<div id="conteneur">
+
+	                <div class="efrei"><a href="#"><img src="fijiii.jpg" alt="ls-sample4"/></a></div>
+	                <div class="efrei"><a href="#"><img src="fijia.jpg" alt="ls-sample7"/></a></div>
+	                <div class="efrei"><a href="#"><img src="fijiz.jpg" alt="ls-sample6"/></a></div>
+	            </div>
+
+	            <script type="text/javascript">
+	                /* Demo purposes only */
+	                $(".hover").mouseleave(
+	                  function () {
+	                    $(this).removeClass("hover");
+	                  }
+	                );
+	            </script>
+        	</aside>
+		    </br>
+		    </br>
+		    </br>
+        	<article>
+	           <p>
+	           Des îles tropicales paradisiaques, de superbes sites de plongée, un accueil chaleureux, et la découverte d’une culture et de traditions authentiques, autant d’ingrédients qui feront de votre séjour à Fidji un moment inoubliable !
+	           Un voyage à Fidji vous garantit une mosaïque de couleurs tropicales, et de traditions anciennes. Imaginez 300 îles éparpillées sur les eaux bleues du Pacifique, chacune unique mais toutes enchanteresses avec leurs plages bordées de cocotiers et protégées par un récif de corail. Imaginez un peuple souriant, accueillant, qui ne demande qu’à aller vers vous avec le sourire et toujours dans la bonne humeur. C’est cela aussi un voyage à Fidji, une rencontre authentique et des souvenirs plein la tête. Vous n’êtes pas près d’oublier les fameux « Isa Lei », chanson d’au revoir que tout le personnel entonne à votre départ de la plupart des hôtels.
+	           </p>
+
+        	</article>
+      </section>
+    </body>
+</html>
