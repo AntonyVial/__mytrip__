@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title> commentez-nous !</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    	<style type="text/css">
+    		*  
+            {
+             box-sizing: border-box;
+             font-family: Georgia; 
+            }
+    		h1
+            {
+                color: white;
+                font-family: Georgia;
+            }
+            h1:hover
+            {
+                transform: skewY(4deg) skewX(15deg) scale(1.1); /* SKEW = DISTROSION */
+                text-shadow: 0.5rem 1rem 2rem azure;
+                transition-duration: 3s;
+            }
+            header
+            {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+    		body
+            {
+                margin: auto; 
+                background-image: url("commentaire.jpg"); 
+                font-family: Verdana;
+            }
+    		form
+            { 
+                padding-bottom: 10px; 
+                padding-top: 10px; 
+                background-color: transparent; 
+                max-width: 1000px; 
+                margin: auto; 
+                width: 100%;
+            }
+
+    		.form
+            {
+                display: flex; 
+                flex-direction: row; 
+                flex-flow: row wrap; 
+                margin-bottom: 20px; 
+                width: 100%;
+            }
+
+    		label
+            {
+                margin-left: 10px;
+                color: azure;
+            }
+    		select
+            {
+                margin-left: 10px;
+            }
+
+            fieldset
+            {
+                margin: 1%;
+                margin-right: 100px;
+                margin-left: 100px;
+                border-radius: 30px;
+                background-color: transparent;
+            }
+    		button
+            {
+                padding: 3px; 
+                text-decoration: none;
+                margin-left: 10px;
+                margin-top: 5px;
+            }
+
+    		button:hover
+            {
+                background-color: grey;
+            }
+    		.button
+            {
+                text-align: left;
+            }
+
+    		main
+            {
+                margin: 10px; 
+                min-width: 1000px;
+            }
+
+    		#title_1
+            {
+                padding-left:40%;
+                color: white;
+            }
+
+    		table
+            {
+                width: 100%; 
+                margin: 5px; 
+                overflow: scroll; 
+                text-align: center; 
+            }
+    		main table td
+            {
+                width: 25%; 
+                margin: 5px;
+                margin-bottom: 5px;
+            }
+    		main table tr:last-child td
+            {
+                border-bottom:0px; 
+                margin-bottom:0px; 
+                margin:0px;
+            }
+            .tab
+            {
+                text-align: left;
+                font-size: 25px;
+            }
+            .comment
+            {
+                color: azure;
+                font-weight: bold;
+                text-align: left;
+                margin: 5px;
+                margin-left: 25px;
+            }
+            .nouveau
+            {
+                background-color: transparent;
+            }
+            .new
+            {
+                position: left;
+                text-decoration: none;
+                color: black;
+            }
+            .supprimer:hover
+            {
+                color: black;
+                background-color: red;
+
+            }
+            .commentez:hover
+            {
+                color: black;
+                background-color: lightgreen;
+            }
+            .magic
+            {
+                color: white;
+                font-size: 20px;
+            }
+    	</style>
+    </head>
+
+    <button> <a class="new" href="WEB_PROJET.html"> Retour menu </a> </button>
+    <header>
+        
+        <h1> Page de commentaires </h1>
+
+        <hr class="separator"> 
+        <fieldset class="nouveau">
+            <legend  class="comment" > Merci de remplir l'espace de commentaires </legend>
+
+            <form action="#" name="form" id="rotation">
+
+                <div class="form">
+                    <div>
+                        <label for="Pseudo"> Indiquez votre <strong> pseudo </strong> * </label>  
+                        <input type="text" placeholder="Pseudo" id="pseudo" name="pseudo" maxlenght="15" autocomplete="off" required>
+                    </div>
+                    
+                    <label for="ile"> Indiquez un choix d' <strong> ile </strong> * </label>  
+    		        <select id="ile" name="île">
+                        <option value="Bali">Bali</option>
+                        <option value="Fiji">Fiji</option>
+    		            <option value="Borabora">Borabora</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Canaries">Canaries</option>
+                    </select>
+                    
+                    <div>
+                        <label for="Note"> Indiquez votre <strong> note </strong> * </label>
+                        <input type="number" placeholder="Note" min=0 max=5 id="note" name="note" required>
+                    </div>
+                    </br>
+                    <div>
+                        <label for="commentaire"> laissez-nous un <strong> commentaire </strong> *</label>
+                        <textarea type="text" placeholder="Commentaire" id="commentaire" name="commentaire" required rows="1" cols="90"></textarea>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <button onclick="add()" class="commentez" type="button" name="ajout" id="ajout"> Commentez </button>
+
+                    <button type="button" class="supprimer" onclick="resetFields()"> supprimer </button>
+                </div>
+
+                <hr class='separator'>
+            </form>
+        </fieldset>
+    </header>
+
+    <div class="tab">
+        <main id="main_1">
+            <div dir="rtl" style="height: 400px; overflow-y:scroll; background-color: transparent;">
+                <p id="title_1"><b>Espace commentaires</b></p>
+                <table name="tableau" dir="ltr" style="width:100%" class="magic" id="tab_1">
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="text/javascript">
+
+	function add()
+	{
+        alert("Merci d'avoir commenter sur notre page web !")
+            loginForm = document.forms.form;
+            const prenote = loginForm["pseudo"];
+	    const ile = loginForm["ile"];
+            const note = loginForm["note"];
+            const commentaire = loginForm["commentaire"];
+            console.log(prenote.value, ile.value, note.value, commentaire.value);
+
+            if((check_Args(prenote.value, note.value, commentaire.value) === true))
+            {
+                console.log(prenote.value, ile.value, note.value, commentaire.value);
+                createLine(prenote.value, ile.value, note.value, commentaire.value);
+            }
+            else
+            {
+                console.log("Arguments invalides");
+                return;
+            }
+        }
+
+	function showUsers()
+	{
+            	document.querySelector("#main_1").style.display = "contents";
+        }
+
+        function check_Args(prenote,note,commentaire)
+        {
+            if(((prenote) === "") || ((note) === "") || ((commentaire) === ""))
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        function createLine(prenote, ile, note, commentaire) 
+	   {
+            const td_prenote = document.createElement('td');
+	        const td_ile = document.createElement('td');
+            const td_note = document.createElement('td');
+            const td_commentaire = document.createElement('td');
+
+            td_prenote.textContent = prenote;
+	    td_ile.textContent = ile;
+            td_note.textContent = note;
+            td_commentaire.textContent = commentaire;
+            
+            const tr = document.createElement('tr');
+            tr.appendChild(td_prenote);
+	    tr.appendChild(td_ile);
+            tr.appendChild(td_note);
+            tr.appendChild(td_commentaire);
+
+            const table = document.getElementById("tab_1");
+            table.appendChild(tr);
+        }
+
+        function init_page()
+        {
+            createLine("Pseudo", "Île", "Note /5","Commentaire");
+            showUsers();
+        }
+
+        init_page();
+
+        function resetFields()
+        {
+            alert(" Oups !! Vous avez supprimer vos champs !");
+            document.getElementById('pseudo').value="";
+            document.getElementById('note').value=""
+            document.getElementById('commentaire').value=""
+            document.getElementById('select1').selectedIndex=-1;
+        }
+
+    </script>
+
+    <body>
+        
+    </body>
+</html>
