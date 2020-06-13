@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr-en" dir="ltr">
+    <head>
+        <title> Les meilleures destinations </title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="WEB_PROJET.css" media="screen">
+    </head>
+
+    <body>
+        <header>
+            <nav id="retour">
+                <label for="menu-mobile" class="menu-mobile"> Menu </label>
+                <input type="checkbox" id="menu-mobile" role="button">
+
+                <ul>
+                    <li class="menu1"> <a> Accueil </a>
+                        <ul class="submenu">
+                            <li><a href="https://www.trivago.fr/" target="_blank"> Reserver son hotel</a></li>
+                            <li><a href="https://www.booking.com/index.fr.html" target="_blank"> Reserver son départ </a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu2"><a> Les îles </a>
+                        <ul class="submenu">
+                            <li><a href="WEB_BALI.html">Bali</a></li>
+                            <li><a href="WEB_FIJI.html">Fiji</a></li>
+                            <li><a href="WEB_BORABORA.html">Borabora</a></li>
+                            <li><a href="WEB_MALDIVES.html">Maldives</a></li>
+                            <li><a href="WEB_CANARIES.html">Canaries</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu5"> <a href="WEB_COMMENTAIRES.html"> Commentez </a> </li>
+
+                    <li class="menu3"> <a href="WEB_TEAM.html"> A propos </a> </li>
+
+                    <li class="menu4"><a href="#contact"> Nous contacter </a> </li>
+
+                    <input type="search" id="search" placeholder="tapez..." onchange="ouvrirPage()"> <input class="ouvrir" type="submit" id="btn" value="Rechercher" onclick="ouvrirPage()">
+
+                    <script type="text/javascript">
+                        function ouvrirPage(){
+                            var a = document.getElementById("search").value;
+                            if (a == "")
+                            {
+                                alert("veuiller remplir un champ dans la barre de recherche");
+                            }
+                            else if (a == "équipe")
+                            {
+                                window.open("WEB_TEAM.html");
+                            }
+                            else if (a == "hotel")
+                            {
+                                window.open("https://www.trivago.fr/");
+                            }
+                            else if (a == "voyage")
+                            {
+                                window.open("https://www.booking.com/index.fr.html");
+                            }
+                            else if (a == "fiji")
+                            {
+                                window.open("WEB_FIJI.html")
+                            }
+                            else if (a == "bali")
+                            {
+                                window.open("WEB_BALI.html")
+                            }
+                            else if (a == "borabora")
+                            {
+                                window.open("WEB_BORABORA.html")
+                            }
+                            else if (a == "canarie")
+                            {
+                                window.open("WEB_CANARIES.html")
+                            }
+                            else if (a == "maldive")
+                            {
+                                window.open("WEB_MALDIVES.html")
+                            }
+                        }
+                    </script>
+                </ul>
+            </nav>
+
+            <h1>MY TRIP</br><h3>Les meilleures destinations 2020</h3> </h1>
+        </header>
+
+      
+        <footer>
+            <div class="main-content">
+                <div class="left box">
+                    <h3> A propos de nous </h3>
+                    <div class="content">
+                        <h5> Vous pouvez nous retrouver également sur notre instagram !</h5>
+                        <div class="social">
+                            <a href="https://www.instagram.com/mytrip.officiel/?hl=fr" target="_blank"><span class="fab fa-instagram"> </span> </a>
+                        </div>
+
+                        </br>
+
+                        <a class="CGU" href="CGU.pdf" download="CGU.pdf" target="_blank"> Mentions légales et CGU </a>
+
+                        <h5> Les-meilleures-destinations© tout droits réservés </h5>
+                    </div>
+                </div>
+
+                <div class="center box">
+                    <h3> Adresses </h3>
+                    <div class="content">
+                        <div class="place">
+                            <span class="text"> Boulogne, France </span>
+                        </div>
+                        </br>
+                        <div class="phone">
+                            <span class="text"> +33659872354 </span>
+                        </div>
+                        </br>
+                        <div class="">
+                            <span class="text"> teamweb@efrei.com </span>
+                        </div>
+
+                        </br>
+
+                        <button> <a class="retour" href="#retour"> Menu principal </a> </button>
+                    </div>
+                </div>
+
+                <div class="right box">
+                    <h3 id="contact"> Contactez - nous  </h3>
+                    <div class="content">
+                        <form action="#">
+                            <div class="email">
+                                <div class="text"> Email *</div> 
+                                <input type="email" name="email" id="email" placeholder="nomprenom@gmail.com" required>
+                            </div>
+                            <div class="msg">
+                                <div class="text"> Message *</div>
+                                <textarea rows="3" cols="43" placeholder="saisir votre message..." required></textarea>
+                                </br>
+                                <label for="cocher"> souhaitez vous recevoir la newsletter ? *</label>
+                                <select name="cocher" id="cocher">
+                                    <option value="oui"> oui</option>
+                                    <option value="non"> non</option> 
+                                </select>
+                            </div>
+
+                            </br>
+
+                            <div class="btn">
+                                <button type="submit" onclick="envoyer()"> Envoyer </button>
+
+                                <script type="text/javascript"> 
+                                    function envoyer()
+                                    {
+                                    alert("Merci de nous avoir contacté, nous vous répondrons au plus vite");
+                                    } 
+                                </script>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
